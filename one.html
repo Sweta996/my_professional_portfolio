@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweta - Software Testing Professional</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #a5b4fc;
+            --secondary: #f0abfc;
+            --accent: #bae6fd;
+            --light: #f9fafb;
+            --dark: #1f2937;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #b8dad7, #efcdef);
+            color: var(--dark);
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Enhanced Background Designs */
+        .background-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .shape {
+            position: absolute;
+            opacity: 0.4;
+            filter: blur(8px);
+            animation: floatAnimation 15s infinite ease-in-out;
+        }
+        
+        .shape-1 {
+            top: 15%;
+            left: 10%;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(45deg, var(--primary), transparent);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation-duration: 25s;
+        }
+        
+        .shape-2 {
+            top: 45%;
+            right: 8%;
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(45deg, var(--secondary), transparent);
+            border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%;
+            animation-duration: 20s;
+            animation-delay: 2s;
+        }
+        
+        .shape-3 {
+            bottom: 15%;
+            left: 15%;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, var(--accent), transparent);
+            border-radius: 30% 70% 40% 60% / 60% 30% 70% 40%;
+            animation-duration: 18s;
+            animation-delay: 5s;
+        }
+        
+        .shape-4 {
+            top: 70%;
+            right: 20%;
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(45deg, #c4b5fd, transparent);
+            border-radius: 60% 40% 30% 70% / 40% 50% 50% 60%;
+            animation-duration: 22s;
+            animation-delay: 3s;
+        }
+        
+        @keyframes floatAnimation {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            33% {
+                transform: translate(5px, 15px) rotate(2deg) scale(1.05);
+            }
+            66% {
+                transform: translate(-10px, 5px) rotate(-2deg) scale(0.95);
+            }
+            100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+        }
+        
+        /* Enhanced Transitions */
+        .transition-all {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background-size: 200% 200%;
+            animation: gradientAnimation 8s ease infinite;
+        }
+        
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .navbar {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-card, .project-card, .education-card, .certificate-card, .achievement-card, .experience-card {
+            border-radius: 10px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .skill-card:hover, .project-card:hover, .education-card:hover, .certificate-card:hover, .achievement-card:hover, .experience-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: rgba(165, 180, 252, 0.5);
+        }
+        
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), #c4b5fd);
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-card:hover .skill-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 5px 15px rgba(165, 180, 252, 0.4);
+        }
+        
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn ease 1s forwards;
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            bottom: -10px;
+            left: 0;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+        
+        .section-title:hover::after {
+            width: 100%;
+        }
+        
+        .btn-gradient {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            transition: all 0.4s ease;
+            background-size: 200% auto;
+        }
+        
+        .btn-gradient:hover {
+            background-position: right center;
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(165, 180, 252, 0.4);
+        }
+        
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transition: width 1.5s cubic-bezier(0.1, 0.5, 0.2, 1);
+            width: 0;
+        }
+        
+        .progress-bar.animate {
+            width: 100%;
+        }
+        
+        /* Enhanced Profile Frame */
+        .profile-frame {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 0 auto;
+        }
+        
+        .profile-border {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(
+                from 0deg, 
+                rgba(165, 180, 252, 0.8),
+                rgba(240, 171, 252, 0.8),
+                rgba(186, 230, 253, 0.8),
+                rgba(165, 180, 252, 0.8)
+            );
+            animation: rotate 10s linear infinite;
+            z-index: 0;
+        }
+        
+        .profile-border::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 50%;
+            background: conic-gradient(
+                from 180deg, 
+                rgba(165, 180, 252, 0.3),
+                rgba(240, 171, 252, 0.3),
+                rgba(186, 230, 253, 0.3),
+                rgba(165, 180, 252, 0.3)
+            );
+            filter: blur(10px);
+            z-index: -1;
+        }
+        
+        .profile-border::after {
+            content: '';
+            position: absolute;
+            inset: 5px;
+            border-radius: 50%;
+            background: white;
+            z-index: 1;
+        }
+        
+        .profile-image-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 85%;
+            height: 85%;
+            border-radius: 50%;
+            overflow: hidden;
+            z-index: 2;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 3s infinite alternate;
+        }
+        
+        .profile-outer-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 110%;
+            height: 110%;
+            border-radius: 50%;
+            border: 2px dashed rgba(186, 230, 253, 0.6);
+            animation: rotate-reverse 15s linear infinite;
+            z-index: 0;
+        }
+        
+        .profile-decorations {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .profile-decoration {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            box-shadow: 0 0 10px rgba(165, 180, 252, 0.5);
+            z-index: 3;
+        }
+        
+        .profile-decoration:nth-child(1) {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(165, 180, 252, 0.8);
+        }
+        
+        .profile-decoration:nth-child(2) {
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            background: rgba(240, 171, 252, 0.8);
+        }
+        
+        .profile-decoration:nth-child(3) {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(186, 230, 253, 0.8);
+        }
+        
+        .profile-decoration:nth-child(4) {
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            background: rgba(196, 181, 253, 0.8);
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+        
+        @keyframes rotate-reverse {
+            0% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 8px 32px rgba(165, 180, 252, 0.3);
+                transform: translate(-50%, -50%) scale(1);
+            }
+            100% {
+                box-shadow: 0 12px 40px rgba(240, 171, 252, 0.5);
+                transform: translate(-50%, -50%) scale(1.03);
+            }
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Enhanced section backgrounds */
+        .alternating-section {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .alternating-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(165, 180, 252, 0.1) 0%, rgba(192, 132, 252, 0.1) 100%);
+            transform: skewY(-3deg);
+            transform-origin: top left;
+            z-index: -1;
+            transition: transform 0.5s ease;
+        }
+        
+        .alternating-section:hover::before {
+            transform: skewY(-2deg);
+        }
+        
+        /* For printing/PDF export optimization */
+         {
+            html, body {
+                width: 100%;
+                height: auto;
+                overflow: visible;
+                background: white;
+                font-size: 12px;
+                line-height: 1.2;
+            }
+            
+            .container {
+                width: 100%;
+                max-width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .hidden-print {
+                display: none !important;
+            }
+            
+            section {
+                page-break-inside: avoid;
+                margin-bottom: 20px;
+            }
+            
+            .skill-card, .project-card, .education-card, .certificate-card, .achievement-card, .experience-card {
+                box-shadow: none;
+                border: 1px solid #eee;
+            }
+            
+            .background-shapes {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Shapes -->
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar fixed w-full z-50 shadow-sm py-3 bg-white bg-opacity-50 hidden-print">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="#home" class="text-2xl font-bold gradient-text">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">Sweta</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-700 hover:text-indigo-500 transition duration-300">About</a>
+                <a href="#skills" class="text-gray-700 hover:text-indigo-500 transition duration-300">Skills</a>
+                <a href="#experience" class="text-gray-700 hover:text-indigo-500 transition duration-300">Experience</a>
+                <a href="#projects" class="text-gray-700 hover:text-indigo-500 transition duration-300">Projects</a>
+                <a href="#education" class="text-gray-700 hover:text-indigo-500 transition duration-300">Education</a>
+                <a href="#contact" class="text-gray-700 hover:text-indigo-500 transition duration-300">Contact</a>
+            </div>
+            <button id="menuBtn" class="md:hidden text-gray-700 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden w-full bg-white py-4 px-4 shadow-md absolute top-full left-0">
+            <div class="flex flex-col space-y-4">
+                <a href="#about" class="text-gray-700 hover:text-indigo-500 transition duration-300">About</a>
+                <a href="#skills" class="text-gray-700 hover:text-indigo-500 transition duration-300">Skills</a>
+                <a href="#experience" class="text-gray-700 hover:text-indigo-500 transition duration-300">Experience</a>
+                <a href="#projects" class="text-gray-700 hover:text-indigo-500 transition duration-300">Projects</a>
+                <a href="#education" class="text-gray-700 hover:text-indigo-500 transition duration-300">Education</a>
+                <a href="#contact" class="text-gray-700 hover:text-indigo-500 transition duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 md:py-32 relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in" style="animation-delay: 0.2s">
+                        Hello, I'm <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">Sweta</span>
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl text-gray-600 mb-6 animate-fade-in" style="animation-delay: 0.4s">
+                        <span id="typingText">Software Testing Professional</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-8 animate-fade-in" style="animation-delay: 0.6s">
+                        Specialized in manual and automated testing with experience in diffreent software testing tool. 
+                    </p>
+                    <div class="flex flex-wrap gap-4 animate-fade-in" style="animation-delay: 0.8s">
+                        <a href="#contact" class="btn-gradient py-3 px-8 rounded-full font-medium">
+                            Get In Touch
+                        </a>
+                        <a href="https://page.genspark.site/get_upload_url/3fff1273919eab81ef308f8449925919a0b5f70d5efee3cf1c12f9033887304d/default/e2c6ec24-1267-4cad-bb11-296e4b16cb13" download="Sweta_Resume.docx" class="bg-white py-3 px-8 rounded-full font-medium border border-indigo-300 text-indigo-500 hover:bg-indigo-50 transition duration-300">
+                            Download CV
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-2/5 flex justify-center animate-fade-in" style="animation-delay: 1s">
+                    <div class="profile-frame">
+                        <div class="profile-border"></div>
+                        <div class="profile-outer-ring"></div>
+                        <div class="profile-decorations">
+                            <div class="profile-decoration"></div>
+                            <div class="profile-decoration"></div>
+                            <div class="profile-decoration"></div>
+                            <div class="profile-decoration"></div>
+                        </div>
+                        <div class="profile-image-container">
+                                <img src="https://media-hosting.imagekit.io/9afd0c8b22074c8d/WhatsApp%20Image%202025-04-23%20at%2011.35.11_96b42477.jpg?Expires=1839996336&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=id2kQDyzBesxVF4SvDjnDMoHtZx0eiR1kLVsVm6P-nXNSmBveFf0XnWpAPzHzx5UAwLij1Ez19nGEkzp3drDTxtwks7s96qNcO57Km6lvIDu7fGNONcxnryhp8Sq7MGhI5ge3nPYx87WJhYORk-ygWRYUW7mWbmEOHJJssn0Iwcm7M8JnSrLS8IEBGL1K6llEVm06Z3oU0SSofJFCJrBM2gPWal2VcRCnw4yt~FE1QSe9L7yTrZ~k7-bUBeXmm-SfmHxpUFwUkNjVsHJ4eDW~9bre0Fpy-jTsqko716i0UNlmYgWSw8Vxa3dNocQjnjpr3PFxAEPisCKweQp9a~pHg__" alt="Sweta Profile Picture" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white relative alternating-section">
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="section-title text-3xl font-bold text-center mb-16 reveal">About Me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Who I Am</h3>
+                    <p class="text-gray-600 mb-6">
+                        I'm a passionate Software Tester with a strong background in both manual and automated testing methodologies. 
+                        Currently pursuing my Bachelor of Technology in Computer Science and Engineering at Lovely Professional University.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        My expertise spans across various testing domains including functional, performance, and mobile testing. I'm adept at writing test cases, 
+                        tracking defects, and ensuring software quality through comprehensive testing approaches.I am committed to ensuring high-quality software through comprehensive testing methodologies. Also proficient  in agile project management.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center mr-4 transform transition-transform hover:scale-110 hover:rotate-12">
+                                <i class="fas fa-envelope text-indigo-500"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-800 font-medium">Email</p>
+                                <a href="mailto:218.sweta@gmail.com" class="text-indigo-500 hover:underline">218.sweta@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center mr-4 transform transition-transform hover:scale-110 hover:rotate-12">
+                                <i class="fas fa-phone text-indigo-500"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-800 font-medium">Phone</p>
+                                <a href="tel:+918092806788" class="text-indigo-500 hover:underline">+91 8092806788</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center mr-4 transform transition-transform hover:scale-110 hover:rotate-12">
+                                <i class="fab fa-linkedin text-indigo-500"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-800 font-medium">LinkedIn</p>
+                                <a href="https://www.linkedin.com/in/sweta-298710258" target="_blank" class="text-indigo-500 hover:underline">www.linkedin.com/in/sweta-298710258</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center mr-4 transform transition-transform hover:scale-110 hover:rotate-12">
+                                <i class="fab fa-github text-indigo-500"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-800 font-medium">GitHub</p>
+                                <a href="https://github.com/Sweta996" target="_blank" class="text-indigo-500 hover:underline">github.com/Sweta996</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 relative">
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="section-title text-3xl font-bold text-center mb-16 reveal">My Skills</h2>
+            
+            <!-- Technical Skills -->
+            <div class="mb-16 reveal">
+                <h3 class="text-2xl font-semibold mb-8 text-center">Technical Skills</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Manual Testing -->
+                    <div class="skill-card p-6">
+                        <div class="skill-icon mx-auto">
+                            <i class="fas fa-clipboard-check text-indigo-500 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-medium text-center mb-2">Manual Testing</h4>
+                        <p class="text-gray-600 text-center mb-4">Expert in various manual testing methodologies including functional, regression, and exploratory testing.</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mb-1">
+                            <div class="progress-bar" data-width="95%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Automated Testing -->
+                    <div class="skill-card p-6">
+                        <div class="skill-icon mx-auto">
+                            <i class="fas fa-robot text-indigo-500 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-medium text-center mb-2">Automated Testing</h4>
+                        <p class="text-gray-600 text-center mb-4">Proficient in automation tools like Selenium, Katalon Studio, and TestNG for efficient test execution.</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mb-1">
+                            <div class="progress-bar" data-width="90%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Test Planning -->
+                    <div class="skill-card p-6">
+                        <div class="skill-icon mx-auto">
+                            <i class="fas fa-tasks text-indigo-500 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-medium text-center mb-2">Test Planning</h4>
+                        <p class="text-gray-600 text-center mb-4">Experience in creating comprehensive test plans and strategies for various software applications.</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mb-1">
+                            <div class="progress-bar" data-width="85%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Performance Testing -->
+                    <div class="skill-card p-6">
+                        <div class="skill-icon mx-auto">
+                            <i class="fas fa-tachometer-alt text-indigo-500 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-medium text-center mb-2">Performance Testing</h4>
+                        <p class="text-gray-600 text-center mb-4">Skills in performance testing using tools like JMeter to evaluate system performance under various conditions.</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mb-1">
+                            <div class="progress-bar" data-width="80%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile Testing -->
+                    <div class="skill-card p-6">
+                        <div class="skill-icon mx-auto">
+                            <i class="fas fa-mobile-alt text-indigo-500 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-medium text-center mb-2">Mobile Testing</h4>
+                        <p class="text-gray-600 text-center mb-4">Experience in testing mobile applications with tools like Appium for both Android and iOS platforms.</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mb-1">
+                            <div class="progress-bar" data-width="80%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Defect Tracking -->
+                    <div class="skill-card p-6">
+                        <div class="skill-icon mx-auto">
+                            <i class="fas fa-bug text-indigo-500 text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-medium text-center mb-2">Defect Tracking</h4>
+                        <p class="text-gray-600 text-center mb-4">Skilled in identifying, documenting, and tracking defects throughout the software development lifecycle.</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mb-1">
+                            <div class="progress-bar" data-width="90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Languages and Tools -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 reveal">
+                <!-- Programming Languages -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Programming Languages</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3">
+                                    <i class="fab fa-java text-indigo-500"></i>
+                                </div>
+                                <span class="text-gray-700 font-medium">Java</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="progress-bar" data-width="90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3">
+                                    <i class="fas fa-code text-indigo-500"></i>
+                                </div>
+                                <span class="text-gray-700 font-medium">C++</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="progress-bar" data-width="85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3">
+                                    <i class="fab fa-html5 text-indigo-500"></i>
+                                </div>
+                                <span class="text-gray-700 font-medium">HTML/CSS</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="progress-bar" data-width="80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3">
+                                    <i class="fab fa-js text-indigo-500"></i>
+                                </div>
+                                <span class="text-gray-700 font-medium">JavaScript</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="progress-bar" data-width="75%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3">
+                                    <i class="fab fa-python text-indigo-500"></i>
+                                </div>
+                                <span class="text-gray-700 font-medium">Python</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="progress-bar" data-width="60%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tools & Frameworks -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Tools & Frameworks</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3">
+                                    <i class="fas fa-check-square text-indigo-500"></i>
+                                </div>
+                                <span class="text-gray-700 font-medium">Selenium</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="progress-bar" data-width="95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3">
+                                    <i class="fas fa-laptop-code text-indigo-500"></i>
+                                </div>
+                                <span class="text-gray-700 font-medium">Katalon Studio</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="progress-bar" data-width="90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3">
+                                    <i class="fas fa-paper-plane text-indigo-500"></i>
+                                </div>
+                                <span class="text-gray-700 font-medium">Postman</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="progress-bar" data-width="85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3">
+                                    <i class="fas fa-tachometer-alt text-indigo-500"></i>
+                                </div>
+                                <span class="text-gray-700 font-medium">JMeter</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="progress-bar" data-width="80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3">
+                                    <i class="fas fa-database text-indigo-500"></i>
+                                </div>
+                                <span class="text-gray-700 font-medium">MySQL</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="progress-bar" data-width="75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-16 bg-white relative alternating-section">
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="section-title text-3xl font-bold text-center mb-16 reveal">Experience</h2>
+            
+            <div class="space-y-10 reveal">
+                <!-- Samatrix Internship -->
+                <div class="experience-card p-6 md:p-8 transition-all">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Samatrix – Training</h3>
+                            <p class="text-gray-600">Data analysis in python</p>
+                        </div>
+                        <div class="mt-2 md:mt-0">
+                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">
+                                July 2023 – August 2023
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-medium mb-2 text-gray-700">Project Overview:</h4>
+                        <p class="text-gray-600 mb-4">
+                            Understanding python and implementation of panda libraries using python and analyze graphical 
+                            representation of data through coding.
+                        </p>
+                        <div>
+                            <h4 class="font-medium mb-2 text-gray-700">Tech Used:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-purple-100 text-purple-800 text-sm px-3 py-1 rounded-full transition-all hover:bg-purple-200 transform hover:scale-105">Python</span>
+                                <span class="bg-purple-100 text-purple-800 text-sm px-3 py-1 rounded-full transition-all hover:bg-purple-200 transform hover:scale-105">Panda libraries</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- LPU Internship -->
+                <div class="experience-card p-6 md:p-8 transition-all">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Lovely Professional University - Training</h3>
+                            <p class="text-gray-600">Logic building, Programming and Data structure: Learn how to think and program</p>
+                        </div>
+                        <div class="mt-2 md:mt-0">
+                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">
+                                June 2024 - July 2024
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-medium mb-2 text-gray-700">Project Overview:</h4>
+                        <p class="text-gray-600 mb-4">
+                            Understanding the concepts of data structure and algorithm and automata.
+                        </p>
+                        <div>
+                            <h4 class="font-medium mb-2 text-gray-700">Tech Used:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-purple-100 text-purple-800 text-sm px-3 py-1 rounded-full transition-all hover:bg-purple-200 transform hover:scale-105">Data Structure and algorithm</span>
+                                <span class="bg-purple-100 text-purple-800 text-sm px-3 py-1 rounded-full transition-all hover:bg-purple-200 transform hover:scale-105">Automata</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 relative">
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="section-title text-3xl font-bold text-center mb-16 reveal">Projects</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal">
+                <!-- AI Chatbot Project -->
+                <div class="project-card h-full transition-all">
+                    <div class="bg-gradient-to-r from-indigo-400 to-purple-400 h-40 flex items-center justify-center overflow-hidden">
+                        <img src="https://media-hosting.imagekit.io/6ef015cc588946d2/WhatsApp%20Image%202025-03-31%20at%2017.44.53_2366af94.jpg?Expires=1839935934&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=CD7FYIC1WzQchzGVbQKEJ62zGpWTbJR8AHCDolcbIEB6V3xZ5yEjrfnGvaOmvAXQCmOH4x~PP4QT1uX5NiSDwx8yMLkVFSUiOqi~bPYdN0t-EdblTirVj8wkuO2blHWpXkROMY0YEM4435jzcvkbr~akpcJ6Hc~CZ2~f0PF-48Jy6lHOGrggKwWTEAyr0XGZMrPzXI2c0f5eC7YS-glXIZT~uGNWU5n3XI6MaJlEBLegdd9BtqdWKnWudxYcLW2gExz978Bi5~y0TxRDIW-TB0id-~TBg9w01gcrs4ThQhieBuar6svXJG7z9ZvIkCnkm3Hh861qocIY4EAIbK-5nw__">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">AI Chatbot</h3>
+                        <p class="text-gray-600 mb-4">A chatbot that educates users about cybersecurity threats</p>
+                        <ul class="space-y-2 text-gray-600 mb-6">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Uses NLP to provide real-time responses on cybersecurity threats</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Covers phishing, malware, social engineering, and best practices</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Engages users through quizzes, scenarios, and tips</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Flask-powered backend with Dialog flow for AI interactions</span>
+                            </li>
+                        </ul>
+                        <div class="border-t pt-4">
+                            <h4 class="text-sm font-semibold text-gray-700 mb-2">TECHNOLOGIES USED:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded transition-all hover:bg-indigo-200">Dialog flow (AWS)</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded transition-all hover:bg-indigo-200">Python</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded transition-all hover:bg-indigo-200">HTML</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded transition-all hover:bg-indigo-200">CSS</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded transition-all hover:bg-indigo-200">JavaScript</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded transition-all hover:bg-indigo-200">Flask</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Shopping Website Project -->
+                <div class="project-card h-full transition-all">
+                    <div class="bg-gradient-to-r from-purple-400 to-pink-400 h-40 flex items-center justify-center overflow-hidden">
+                        <img src="https://media-hosting.imagekit.io/a2a06a7197384121/WhatsApp%20Image%202025-03-31%20at%2017.41.09_87c8d49a.jpg?Expires=1839936119&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=JYLVxIY5kUgRgis3dsUafiR-DRMjFc3BuM7RH4uL9SgfkwzHPxQV3g0-Ku3-XBAPyIfRNIAb05rNhvD7POEfCVOzfTcMs~t~41TZnGFy-BBXEZeJAaRnUefLNfpd2RApB-nJhOSm2XYRs0-9gkKZ-AZklIRjXmzeCBa3f~HYo6tvqYng-uRd1wTIVqnjdJ3kVe3K46cIWuZ5VHDCW8b4n5nX7HGJ6Z3OKMZIqahsVb41BFQLgksWstBrLMT-YaZ2BlTzCQGeUbu8nEvnytk3rLRNkgm77ZkLv4Xwpffqfyb8oo9VxxSi2g1mk5eodvqovXgOCSmf3sGvkIFTt8TNoQ__">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Shopping Website</h3>
+                        <p class="text-gray-600 mb-4">A website for users to buy products based on their preferences</p>
+                        <ul class="space-y-2 text-gray-600 mb-6">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Users can explore items by categories like gender and type</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Built with HTML, CSS, JavaScript, and Bootstrap</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Clean and intuitive interface for seamless navigation</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Responsive design for all device types</span>
+                            </li>
+                        </ul>
+                        <div class="border-t pt-4">
+                            <h4 class="text-sm font-semibold text-gray-700 mb-2">TECHNOLOGIES USED:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded transition-all hover:bg-indigo-200">HTML</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded transition-all hover:bg-indigo-200">CSS</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded transition-all hover:bg-indigo-200">JavaScript</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded transition-all hover:bg-indigo-200">Bootstrap</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gym Website Project -->
+                <div class="project-card h-full transition-all">
+                    <div class="bg-gradient-to-r from-blue-400 to-cyan-400 h-40 flex items-center justify-center overflow-hidden">
+                        <img src="https://media-hosting.imagekit.io/0c9b1ca7cdd74ed1/screenshot_1745329111344.png?Expires=1839937117&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=XLs7QeXGW6UK-bpXP07RBYcjw7OV7-p3njBauDWFW2NA7VxTz~vIvBw86Bd7blrvKE-6wLUqzL7Q8fNvA6no14Izl86XdX8DKnOvn7qJuj1PQQFSM5zKepDA1GldE8rIa2yWjWIUfoBWHKQmryjY2-9H7IKqF4T41U2C5uw6xZhCl996woDeYkJABNMHJQgggedX96o99fSrKtUIZTB~QMwLFrZwKLat1igTorkd4gAY6lPu8wWx1wLAFuxM1QeRBJqI3SLYeMzI23ErpWlCkUuX1P4UN4wpXMg3ILkPaLAWrLNe586tYykvnKeOaxhdkVGc3n29nYmLS0-fdG9m9Q__">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Texas's Fitness Club</h3>
+                        <p class="text-gray-600 mb-4">A responsive gym website with membership options</p>
+                        <ul class="space-y-2 text-gray-600 mb-6">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Allows users to sign up for gym membership</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Provides instructional workout videos for members</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Showcases images of members achieving fitness goals</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Highlights the advantages of joining the gym</span>
+                            </li>
+                        </ul>
+                        <div class="border-t pt-4">
+                            <h4 class="text-sm font-semibold text-gray-700 mb-2">TECHNOLOGIES USED:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded transition-all hover:bg-indigo-200">HTML</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded transition-all hover:bg-indigo-200">CSS</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded transition-all hover:bg-indigo-200">JavaScript</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded transition-all hover:bg-indigo-200">Bootstrap</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-16 bg-white relative alternating-section">
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="section-title text-3xl font-bold text-center mb-16 reveal">Education</h2>
+            
+            <div class="space-y-8 reveal">
+                <!-- LPU Education -->
+                <div class="education-card p-6 md:p-8 transition-all">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Lovely Professional University</h3>
+                            <p class="text-indigo-600 font-medium">Bachelor of Technology - Computer Science and Engineering</p>
+                        </div>
+                        <div class="mt-2 md:mt-0">
+                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">
+                                Since September 2022
+                            </span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        Currently pursuing my degree with focus on software testing and quality assurance methodologies.
+                    </p>
+                    <p class="mt-2 text-gray-600">
+                        <span class="font-medium">Location:</span> Punjab, India
+                    </p>
+                </div>
+                
+                <!-- Vivekananda Vidya Mandir -->
+                <div class="education-card p-6 md:p-8 transition-all">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Vivekananda Vidya Mandir</h3>
+                            <p class="text-indigo-600 font-medium">Intermediate</p>
+                        </div>
+                        <div class="mt-2 md:mt-0">
+                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">
+                                April 2019 - March 2021
+                            </span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        Completed intermediate education with an impressive percentage of 87%.
+                    </p>
+                    <p class="mt-2 text-gray-600">
+                        <span class="font-medium">Location:</span> Dhurwa, Ranchi
+                    </p>
+                </div>
+                
+                <!-- Bishop Westcott Girl's School -->
+                <div class="education-card p-6 md:p-8 transition-all">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Bishop Westcott Girl's School</h3>
+                            <p class="text-indigo-600 font-medium">Matriculation</p>
+                        </div>
+                        <div class="mt-2 md:mt-0">
+                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">
+                                Ended March 2019
+                            </span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        Completed matriculation with an excellent percentage of 85%.
+                    </p>
+                    <p class="mt-2 text-gray-600">
+                        <span class="font-medium">Location:</span> Doranda, Ranchi
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications and Achievements -->
+    <section id="certificates" class="py-16 relative">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <!-- Certificates -->
+                <div>
+                    <h2 class="section-title text-3xl font-bold mb-16 reveal">Certificates</h2>
+                    
+                    <div class="space-y-6 reveal">
+                        <div class="certificate-card p-6 hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Introduction to Agile development and scrum</h3>
+                            <img src="https://media-hosting.imagekit.io/e4541e9e531b4ee5/Coursera%20IBM_page-0001%20(1).jpg?Expires=1839938606&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=zgGuSBq5G0AqCYGLKi1qWBTuAy8mEYCde6grLt5-De-90-R3eO-b5T~0AY6DoFOqWDk13C3Fj-NctNhXGiLkBaeh-2DAlScsWwPRB1HOMftoHkhvz~ckrg9UkIqqnx~bxhZoULjvze-SLk8LpDW2s6XwxOWjhdM96QlHdZH0nOZrvkPUqg7SiR5PNNmIIIh0AvwCvsHwLRdNlafREds6XLLnTZ5KirgOqowMWalkFacRpf2i-s0AFZ6JcvbedMCgQ5Yd9I-9Jl4ATB82B2cwTEfYRt~TfdgPwBUaWHe84pAYvBKUNP4GWBLkyB7Aq5uL4XC5TT4KPcJGKHMcGrYzEw__" size="10px" alt="Certificate Image" class="mb-4">
+                            <p class="text-gray-600 mb-4">IBM (Coursera)</p>
+                            <a href="https://www.coursera.org/account/accomplishments/verify/0Q61H64VTHOR" target="_blank" class="text-indigo-500 hover:underline mb-4">View Certificate</a>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3 transform transition-transform hover:rotate-12">
+                                    <i class="fas fa-certificate text-indigo-500"></i>
+                                </div>
+                                <span class="text-gray-500 text-sm">Awarded for completing comprehensive training in Agile methodologies</span>
+                            </div>
+                        </div>
+                        
+                        <div class="certificate-card p-6 hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Web and mobile testing with Selenium</h3>
+                            <img src="https://media-hosting.imagekit.io/ddb24f4facb6413d/Web%20and%20mobile%20testing%20with%20selenium_page-0001.jpg?Expires=1839939030&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=hEwvsg0R6B6ttImkqRAETlrUUFaudqvn18E~8ROhiZ8s4lEejRojaykd9PcbLEjZrdVtl8RWjwVp2~Ei1FoumGF-jjTwG9KAdXXcrfF7KVJ9ShGHjdWyuZmTAt5cnPQv~IvT5er5VIcwhUCWztMqgibpoekLSkqCNe-KQjh98RAkKdFuHkYns0mzSVzwpkS8lzab9d8S8E7RrrWrhcoweHJdV5tChC063-v~LBLxCo5Oz9RBxl2StIFLJtXf6r2kA8RquFRBrfrSHK5vSv8J0a4oqq-hYb2k4B0Q~p6rr-Z~k5HAEAPo~dseCjWE7KM8Uis2ixoUg1ZJj75TX7WQAw__">
+                            <p class="text-gray-600 mb-4">Coursera</p>
+                            <a href="https://www.coursera.org/account/accomplishments/verify/EVF1KPIAOF7H" target="_blank" class="text-indigo-500 hover:underline mb-4">View Certificate</a>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3 transform transition-transform hover:rotate-12">
+                                    <i class="fas fa-certificate text-indigo-500"></i>
+                                </div>
+                                <span class="text-gray-500 text-sm">Recognized for mastery in web and mobile application testing</span>
+                            </div>
+                        </div>
+                        
+                        <div class="certificate-card p-6 hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Object Oriented Programming</h3>
+                            <img src="https://media-hosting.imagekit.io/823863572cd84990/72%20hrs%20Object%20oriented%20programming_page-0001.jpg?Expires=1839939285&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=a3dHCamGod~9qUCxhJQNYXiXy32acpR0WIUbpt5gBzOn58vAiz9aaEdiyCnW5XU7myTWltLeYeZNZ6Y1B1AClLUBWiQUIcflLY7tK4sIqFsNj1jJf2XTvJkzmRB-Gp7Lf5MhkFTTIAB6cMApPKx3u1taeEZE61lthk1l6WLMN39EV8mqkLZeo65N6rhWcpqCPRJOomrQuPpDBb-AYGULxeOC-CCW6UKBq24vZaU~HAIpRc3bHesEevPe~dkuI9uDbZpHJz~rnAoWEQmU1ofSziiXoBBEmGSKSVOEIE9HKLx1LAzDp5EvBax6-nzVeFTXvtd9rxlWD1iA7pnwlDTrVw__">
+                            <p class="text-gray-600 mb-4">72 hours Certification</p>
+                            <a href="file:///C:/Users/HP/OneDrive/Desktop/CERTIFICATES/72%20hrs%20Object%20oriented%20programming.pdf" target="_blank" class="text-indigo-500 hover:underline mb-4">View Certificate</a>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3 transform transition-transform hover:rotate-12">
+                                    <i class="fas fa-certificate text-indigo-500"></i>
+                                </div>
+                                <span class="text-gray-500 text-sm">Completed intensive training in OOP concepts and implementation</span>
+                            </div>
+                        </div>
+                        
+                        <div class="certificate-card p-6 hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Data Structure and Algorithm</h3>
+                            <img src="https://media-hosting.imagekit.io/28420b9dbfec4a9a/72%20hrs%20DSA_page-0001.jpg?Expires=1839939269&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=jAMIUwcEOxvQVCWsVWxJ9E9FRb9Axjy6RC20BYNyBPfikk2l07ksYwhZ1fmM-ZqvNAUWhYwZqNHAWw7gP3C768JJMtx6ZeRCZk-lCe3OmMRL6~vH-DFSHVHk3QOFDAXf7eCSDh51cT7q50FgPEkqmRM2iARTe~fzC3GDqZRWBA0rUrNtFvaBvh7vqHUReR1fNpHbZrGIACIYXwAmZYFwTFcNeFYhM~YJUz2QHvb00wYU67P9xfUtbIZbCuoXgaXIHNwXHEsr-ZZvri6iEBpH-ENl6LD8bdw3gyCWyGp~yaWgmP3OSqDizeEWHPP1j5TkxYQb2quL8ZgIBios7x0Y~A__">
+                            <p class="text-gray-600 mb-4">72 hours Certification</p>
+                            <a href="file:///C:/Users/HP/OneDrive/Desktop/CERTIFICATES/72%20hrs%20DSA.pdf" target="_blank" class="text-indigo-500 hover:underline mb-4">View Certificate</a>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3 transform transition-transform hover:rotate-12">
+                                    <i class="fas fa-certificate text-indigo-500"></i>
+                                </div>
+                                <span class="text-gray-500 text-sm">Recognized for proficiency in data structures and algorithms</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Achievements -->
+                <div>
+                    <h2 class="section-title text-3xl font-bold mb-16 reveal">Achievements</h2>
+                    
+                    <div class="space-y-6 reveal">
+                        <div class="achievement-card p-6 hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Google Arcade Facilitator Program 2025</h3>
+                            <p class="text-gray-600 mb-4">Earned 2 badges</p>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3 transform transition-transform hover:rotate-12">
+                                    <i class="fas fa-trophy text-indigo-500"></i>
+                                </div>
+                                <span class="text-gray-500 text-sm">Participated and successfully earned recognition in the program</span>
+                            </div>
+                        </div>
+                        
+                        <div class="achievement-card p-6 hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Prompt Builder 2025 AWS Summit and Hackathon</h3>
+                            <p class="text-gray-600 mb-4">Top 30 project</p>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3 transform transition-transform hover:rotate-12">
+                                    <i class="fas fa-trophy text-indigo-500"></i>
+                                </div>
+                                <span class="text-gray-500 text-sm">Successfully created a project that was listed among the top 30</span>
+                            </div>
+                        </div>
+                        
+                        <div class="achievement-card p-6 hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">HackerRank Silver Badge</h3>
+                            <p class="text-gray-600 mb-4">C Programming - 145 points</p>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3 transform transition-transform hover:rotate-12">
+                                    <i class="fas fa-award text-indigo-500"></i>
+                                </div>
+                                <span class="text-gray-500 text-sm">Earned silver badge for C programming skills</span>
+                            </div>
+                        </div>
+                        
+                        <div class="achievement-card p-6 hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Certificate of Appreciation</h3>
+                            <p class="text-gray-600 mb-4">Secuneus - Cybersecurity and Ethical Hacking</p>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3 transform transition-transform hover:rotate-12">
+                                    <i class="fas fa-shield-alt text-indigo-500"></i>
+                                </div>
+                                <span class="text-gray-500 text-sm">Received recognition for completing a 3-day workshop</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white relative alternating-section">
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="section-title text-3xl font-bold text-center mb-16 reveal">Get In Touch</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 reveal">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4 transform transition-transform hover:scale-110 hover:rotate-12">
+                                <i class="fas fa-envelope text-indigo-500 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-gray-800 mb-1">Email</h4>
+                                <a href="mailto:218.sweta@gmail.com" class="text-indigo-500 hover:underline">218.sweta@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4 transform transition-transform hover:scale-110 hover:rotate-12">
+                                <i class="fas fa-phone text-indigo-500 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-gray-800 mb-1">Phone</h4>
+                                <a href="tel:+918092806788" class="text-indigo-500 hover:underline">+91 8092806788</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4 transform transition-transform hover:scale-110 hover:rotate-12">
+                                <i class="fab fa-linkedin text-indigo-500 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-gray-800 mb-1">LinkedIn</h4>
+                                <a href="https://www.linkedin.com/in/sweta-298710258" target="_blank" class="text-indigo-500 hover:underline">www.linkedin.com/in/sweta-298710258</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4 transform transition-transform hover:scale-110 hover:rotate-12">
+                                <i class="fab fa-github text-indigo-500 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-gray-800 mb-1">GitHub</h4>
+                                <a href="https://github.com/Sweta996" target="_blank" class="text-indigo-500 hover:underline">github.com/Sweta996</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3 class="text-2xl font-semibold mb-6">Send a Message</h3>
+                    <form id="contactForm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 mb-2">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all" required>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="subject" class="block text-gray-700 mb-2">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 mb-2">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-gradient py-3 px-8 rounded-full font-medium w-full md:w-auto">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-bold mb-2">Sweta</h2>
+                    <p class="text-gray-400">Software Testing Professional</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://www.linkedin.com/in/sweta-298710258" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300 transform hover:scale-110">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="https://github.com/Sweta996" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300 transform hover:scale-110">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="mailto:218.sweta@gmail.com" class="text-gray-400 hover:text-white transition-colors duration-300 transform hover:scale-110">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">© 2023 Sweta. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a nav link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobileMenu').classList.add('hidden');
+            });
+        });
+        
+        // Contact form submit event (prevent default)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In a real implementation, you would send the form data to a server here
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+        
+        // ScrollReveal initialization
+        ScrollReveal().reveal('.reveal', {
+            distance: '30px',
+            origin: 'bottom',
+            opacity: 0,
+            duration: 1000,
+            easing: 'cubic-bezier(0.5, 0, 0, 1)',
+            reset: false,
+            interval: 100,
+            afterReveal: function(el) {
+                el.classList.add('active');
+                
+                // Animate progress bars after reveal
+                if (el.querySelectorAll('.progress-bar').length > 0) {
+                    el.querySelectorAll('.progress-bar').forEach(bar => {
+                        setTimeout(() => {
+                            const width = bar.getAttribute('data-width');
+                            bar.style.width = width;
+                            bar.classList.add('animate');
+                        }, 300);
+                    });
+                }
+            }
+        });
+        
+        // Initialize progress bars animation
+        function initProgressBars() {
+            document.querySelectorAll('.progress-bar').forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = '0%';
+            });
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Add active class to reveal elements when scrolled to
+        function checkReveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            reveals.forEach(reveal => {
+                const revealTop = reveal.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                const revealPoint = 150;
+                
+                if(revealTop < windowHeight - revealPoint) {
+                    reveal.classList.add('active');
+                    
+                    // Animate progress bars
+                    if (reveal.querySelectorAll('.progress-bar').length > 0) {
+                        reveal.querySelectorAll('.progress-bar').forEach(bar => {
+                            setTimeout(() => {
+                                const width = bar.getAttribute('data-width');
+                                bar.style.width = width;
+                            }, 300);
+                        });
+                    }
+                }
+            });
+        }
+        
+        // Navbar scroll effect
+        function checkScroll() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }
+        
+        // Typing effect for the header
+        var typed = new Typed('#typingText', {
+            strings: ['Software Testing Professional', 'Manual Testing Expert', 'Automation Specialist', 'Quality Assurance Engineer'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 2000,
+            loop: true
+        });
+        
+        // Initialize
+        window.addEventListener('DOMContentLoaded', function() {
+            initProgressBars();
+            checkReveal();
+            checkScroll();
+        });
+        
+        window.addEventListener('scroll', function() {
+            checkReveal();
+            checkScroll();
+        });
+    </script>
+</body>
+</html>
